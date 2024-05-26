@@ -1,0 +1,44 @@
+.main {
+    margin-top: 10px;
+    overflow: hidden
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-top: 15px;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.eye-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.show-password {
+    padding-right: 40px;
+    /* Ajoutez de l'espace pour l'icône */
+}
+
+.links {
+    margin-top: 15px;
+}
+
+.link1{
+margin-right: 100px;}
+

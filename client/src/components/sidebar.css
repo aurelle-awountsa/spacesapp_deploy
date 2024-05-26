@@ -1,0 +1,28 @@
+.sidebar {
+  width: 200px; 
+  background-color: #767575; 
+  padding: 20px; 
+  height: 68vh; 
+  margin-top: 50px; 
+  overflow-y: auto; 
+  border-radius: 10px;
+
+}
+
+.sidebar-button {
+  display: block; 
+  width: 100%; 
+  padding: 10px; 
+  border: none; 
+  background-color: #ede8e8; 
+  text-align: center; 
+  cursor: pointer; 
+  margin-bottom: 40px;
+  margin-top: 50px;
+  color: #000; 
+
+}
+
+.sidebar-button:hover {
+  background-color: #cac9c9; /* Changement de couleur de fond au survol */
+}

@@ -1,0 +1,33 @@
+[
+	{
+        "titre": "jardin",
+        "description": "pour cocktail et picnic",
+        "dimension": 100,
+        "place_assise": 50,
+        "place_debout": 100,
+        "ville": "Jette",
+        "prix": 200
+      },
+
+
+      {
+        "titre": "salle de réunion",
+        "description": "pour des réunions d'affaires",
+        "dimension": 80,
+        "place_assise": 20,
+        "place_debout": 40,
+        "ville": "Ixelles",
+        "prix": 150
+      },
+
+      {
+        "titre": "Salle polyvalente",
+        "description": "Adaptée à divers événements",
+        "dimension": 120,
+        "place_assise": 80,
+        "place_debout": 150,
+        "ville": "Uccle",
+        "prix": 300
+      }
+
+]
