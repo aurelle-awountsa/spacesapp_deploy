@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser'); // Importer bodyParser
+const { connect } = require('mongoose'); 
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,7 +12,6 @@ app.use(cors());
 //app.use(express.json);
 
 const mongoURL = process.env.MONGO_URL;
-const { connect } = require('mongoose'); 
 
 const routeAddUser = require('./routes/adduser'); 
 const routeAddSpace = require('./routes/addspace'); 
@@ -29,18 +29,22 @@ app.use('/cities', routeGetCities)
 app.use('/categories', routeGetCathegorie)
 app.use('/user', routeAddUser)
 
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static(path.join(__dirname, '/client/build' )))
-    app.get('*', (req, res)=>{
-        res.sendFile(path.resolve(__dirname), 'client', 'build', 'index.html')
-    })
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }else{
     app.get("/", (req, res)=>{
         res.send("<h1>Hello from Node Server</h1>");
     });
 }
 
-//app.post('/api/spaces', routeAddSpace);
+// Middleware de gestion des erreurs
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Quelque chose a mal tourné!');
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("le serveur ecoute sur le port 5000"));
