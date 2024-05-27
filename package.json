@@ -6,7 +6,6 @@
   "engines": {
     "node": "16.14.0",
     "npm": "8.3.1"
-
   },
   "scripts": {
     "test": "jest",
@@ -15,14 +14,15 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server.js",
     "start": "node server.js",
-    "data:import":"node server.js", 
+    "data:import": "node server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "aurelle",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
