@@ -106,7 +106,7 @@ function Poster({ onSubmit }) {
             <form className="row g-3" id='form' onSubmit={handleSubmit}>
                 <div className="col-md-6">
                     <label htmlFor="inputEmail4" className="form-label">Titre</label>
-                    <input type="text" className="form-control" id="inputEmail4" value={titre} onChange={(e) => setTitre(e.target.value)} required minLength={4} maxLength={15} />
+                    <input type="text" className="form-control" id="inputEmail4" value={titre} onChange={(e) => setTitre(e.target.value)} required minLength={4} maxLength={80} />
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="inputPassword4" className="form-label">Description</label>
