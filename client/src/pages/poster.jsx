@@ -114,7 +114,7 @@ function Poster({ onSubmit }) {
                 </div>
                 <div className="col-6">
                     <label htmlFor="inputAddress" className="form-label">Propriétaire</label>
-                    <input type="text" className="form-control" id="inputAddress" value={proprietaire} onChange={(e) => setProprietaire(e.target.value)} required minLength={4} maxLength={15} />
+                    <input type="text" className="form-control" id="inputAddress" value={proprietaire} onChange={(e) => setProprietaire(e.target.value)} required minLength={4} maxLength={80} />
                 </div>
 
                 <div className="col-md-6">
