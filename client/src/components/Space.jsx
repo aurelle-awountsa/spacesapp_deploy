@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
-
-import './Spaces.css'
+import React, { useState } from 'react';
+import './Spaces.css';
 
 function Space({ space }) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+   
+
     return (
         <div className='row bs'>
             <div className="col-md-4">
-                <img src={space.imageUrl[0]} className='smallimg' />
+                <img src={space.imageUrl[0]} className='smallimg' alt={space.titre} />
             </div>
             <div className="col-md-7">
                 <h2>{space.titre}</h2>
@@ -19,12 +17,11 @@ function Space({ space }) {
                     <p>Prix : {space.prix}€</p>
                 </b>
                 <div style={{ float: 'right' }}>
-                    <button className='btn btn-primary' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Détails</button>
+                    <button className='btn btn-primary' type="button" data-bs-toggle="modal" data-bs-target={`#modal-${space._id}`}>Détails</button>
                 </div>
-
             </div>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={`modal-${space._id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -32,25 +29,22 @@ function Space({ space }) {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body" size='lg'>
-                            <div id="carouselExample" className="carousel slide">
+                            <div id={`carousel-${space._id}`} className="carousel slide">
                                 <div className="carousel-inner">
-
-                                    {space.imageUrl.map(url => {
-                                        return <div className="carousel-item active" >
-                                            <img src={url} className='d-block w-100 bigimg' />
-                                            <button className="carousel-control-prev " type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                    {space.imageUrl.map((url, index) => (
+                                        <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                                            <img src={url} className='d-block w-100 bigimg' alt={space.titre} />
+                                            <button className="carousel-control-prev" type="button" data-bs-target={`#carousel-${space._id}`} data-bs-slide="prev">
                                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span className="visually-hidden">Previous</span>
                                             </button>
-                                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                            <button className="carousel-control-next" type="button" data-bs-target={`#carousel-${space._id}`} data-bs-slide="next">
                                                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span className="visually-hidden">Next</span>
                                             </button>
                                         </div>
-                                    })}
-
+                                    ))}
                                 </div>
-
                             </div>
                             <p>{space.description}</p>
                             <div className="row g-3" id='form'>
@@ -70,13 +64,13 @@ function Space({ space }) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" className="btn btn-primary"  >Reserver</button>
+                            <button type="button" className="btn btn-primary">Reserver</button>
                         </div>
                     </div>
                 </div>
-            </div >
-        </div >
-    )
+            </div>
+        </div>
+    );
 }
 
-export default Space 
+export default Space;

@@ -8,13 +8,13 @@ const user_login = (req, res) => {
 
     //vérification des champs
 
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.userName || !req.body.password) {
         return res
             .status(400)
             .json({message: "tous les champs sont obligatoire"});
     }
 
-    User.findOne({email: req.body.email})
+    User.findOne({userName: req.body.userName})
         .exec()
         .then(user => {
             //Utilisateur non trouvé à partir du mail
@@ -43,6 +43,7 @@ const user_login = (req, res) => {
                 if (result) {
                     const token = jwt.sign( 
                         {
+                            userName: user.userName,
                             email: user.email,
                             userId: user._id
                         },
@@ -61,7 +62,8 @@ const user_login = (req, res) => {
                         token: "JWT " + token,
                         user: {
                             userId: user._id,
-                            userEmail: user.email,
+                            email: user.email,
+                            userName: user.userName,
                             password:user.password
                         }
                     });

@@ -62,7 +62,7 @@ function Signup({ onSubmit }) {
 
   const validatePassword = (password) => {
     // Expression régulière pour valider le mot de passe : min 8 caractères, au moins une majuscule et un caractère spécial
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
     return passwordRegex.test(password);
   };
 

@@ -9,6 +9,8 @@ import Poster from './pages/poster.jsx';
 import Home from './pages/home.jsx';
 import apropos from './pages/apropos.jsx';
 import signup from './pages/signup.jsx';
+import Compte from './components/compte.jsx';
+import { Reserves } from './components/compte.jsx';
 
 function App() {
   const handleSubmit = (data) => {
@@ -27,6 +29,9 @@ function App() {
           <Route path='/contact' Component={Contact} />
           <Route path='/apropos' Component={apropos} />
           <Route path='/poster' element={<Poster onSubmit={handleSubmit} />} />
+          <Route path='/reserve' element={<Reserves onSubmit={handleSubmit} />} />
+          <Route path='/compte' element={<Compte onSubmit={handleSubmit} />} />
+
 
         </Routes>
       </Router>
