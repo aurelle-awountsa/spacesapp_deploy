@@ -1,4 +1,3 @@
-// app.js
 require('dotenv').config();
 const path = require('path')
 const express = require('express');
@@ -47,8 +46,10 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log("le serveur ecoute sur le port 5000"));
-connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true })
+const HOST = '0.0.0.0';
+app.listen(port, HOST, () => {
+    console.log(`Le serveur écoute sur le port ${port}`);
+  });connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => console.log('Mongo DB connecté avec succes'))
     .catch(err => console.error(' Erreur de connecxion Mongo DB:', err));
 
